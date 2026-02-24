@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mbiko Brass Band</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    color:#333;
+}
+
+/* HEADER */
+header{
+    background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('https://images.unsplash.com/photo-1511379938547-c1f69419868d');
+    background-size:cover;
+    background-position:center;
+    color:white;
+    text-align:center;
+    padding:80px 20px;
+}
+
+header img{
+    width:120px;
+    margin-bottom:20px;
+}
+
+header h1{
+    font-size:40px;
+}
+
+header p{
+    font-size:18px;
+    margin-top:10px;
+}
+
+/* NAVIGATION */
+nav{
+    background:#111;
+    padding:15px;
+    text-align:center;
+    position:sticky;
+    top:0;
+}
+
+nav a{
+    color:white;
+    margin:0 15px;
+    text-decoration:none;
+    font-weight:600;
+}
+
+/* SECTIONS */
+section{
+    padding:60px 20px;
+    text-align:center;
+}
+
+section h2{
+    margin-bottom:20px;
+    color:#8B0000;
+}
+
+/* SERVICES */
+.services p{
+    margin:10px 0;
+    font-size:18px;
+}
+
+/* GALLERY */
+.gallery{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+}
+
+.gallery img{
+    width:300px;
+    border-radius:10px;
+}
+
+/* BUTTON */
+.btn{
+    background:#8B0000;
+    color:white;
+    padding:12px 25px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+/* SOCIAL */
+.social a{
+    margin:0 10px;
+    text-decoration:none;
+    font-weight:bold;
+    color:#8B0000;
+}
+
+/* FOOTER */
+footer{
+    background:#111;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <!-- ADD YOUR LOGO IMAGE HERE -->
+    <img src="logo.png" alt="Mbiko Brass Band Logo">
+    
+    <h1>🎺 Mbiko Brass Band</h1>
+    <p>Serving the World with Powerful Brass Music</p>
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+    <h2>About Us</h2>
+    <p>
+        Mbiko Brass Band is based in Mbiko Parish, St. Kalori Lwanga.
+        Started by Rev. Father Wignand Huys and Mugulusi Paul,
+        we are passionate musicians ready to serve the world
+        on weddings, church events, graduations and all celebrations.
+    </p>
+</section>
+
+<section class="services" id="services">
+    <h2>Our Services</h2>
+    <p>🎉 Weddings</p>
+    <p>🎓 Graduations</p>
+    <p>⛪ Church Functions</p>
+    <p>🎊 Cultural Events</p>
+    <p>🎵 Special Celebrations</p>
+</section>
+
+<section id="gallery">
+    <h2>Our Gallery</h2>
+    <div class="gallery">
+        <img src="photo1.jpg" alt="">
+        <img src="photo2.jpg" alt="">
+        <img src="photo3.jpg" alt="">
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Book Us Today</h2>
+    <p>We are ready to serve your event with excellence.</p>
+    
+    <br>
+    <button class="btn" onclick="window.location.href='https://wa.me/2567XXXXXXXX'">
+        📲 Book via WhatsApp
+    </button>
+
+    <br><br>
+
+    <div class="social">
+        <p>Follow Us:</p>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">YouTube</a>
+    </div>
+
+    <br><br>
+
+    <!-- GOOGLE MAP -->
+    <iframe 
+        src="https://www.google.com/maps?q=Mbiko%20Parish%20St.%20Kalori%20Lwanga&output=embed"
+        width="100%" 
+        height="300" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy">
+    </iframe>
+</section>
+
+<footer>
+    <p>© 2026 Mbiko Brass Band | Mbiko Parish - St. Kalori Lwanga</p>
+</footer>
+
+</body>
+</html>
