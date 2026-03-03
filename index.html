@@ -15,113 +15,152 @@
     font-family:'Poppins', sans-serif;
 }
 
-body{
-    background:#f4f6f9;
-    color:#333;
-}
-
-/* HEADER */
-header{
-    background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-    url('band.jpg');
-    background-size:cover;
-    background-position:center;
-    color:white;
-    text-align:center;
-    padding:80px 20px;
-}
-
-header img{
-    width:120px;
-    margin-bottom:20px;
-}
-
-header h1{
-    font-size:40px;
-}
-
-header p{
-    font-size:18px;
-    margin-top:10px;
-}
-
-/* NAVIGATION */
-nav{
-    background:#111;
-    padding:15px;
-    text-align:center;
-    position:sticky;
-    top:0;
-}
-
-nav a{
-    color:white;
-    margin:0 15px;
-    text-decoration:none;
-    font-weight:600;
-}
-
-/* SECTIONS */
-section{
-    padding:60px 20px;
-    text-align:center;
-}
-
-section h2{
-    margin-bottom:20px;
-    color:#8B0000;
-}
-
-/* SERVICES */
-.services p{
-    margin:10px 0;
-    font-size:18px;
-}
-
-/* GALLERY */
-.gallery{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:15px;
-}
-
-.gallery img{
-    width:300px;
-    border-radius:10px;
-}
-
-/* BUTTON */
-.btn{
-    background:#8B0000;
-    color:white;
-    padding:12px 25px;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
-    font-size:16px;
-}
-
-/* SOCIAL */
-.social a{
-    margin:0 10px;
-    text-decoration:none;
-    font-weight:bold;
-    color:#8B0000;
-}
-
-/* FOOTER */
-footer{
-    background:#111;
-    color:white;
-    padding:20px;
-    text-align:center;
-}
-</style>
-</head>
-
 <body>
 
+<nav>
+<a href="#about">About</a>
+<a href="#gallery">Gallery</a>
+<a href="#booking">Booking</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<div class="hero">
+<h1>🎺 Mbiko Brass Band 🎺</h1>
+<p>Raising Champions Through Music | Njeru – Near Jinja, Uganda</p>
+<button class="btn" onclick="document.getElementById('booking').scrollIntoView()">Book Us Now</button>
+</div>
+
+<section id="about">
+<h2>About Us</h2>
+<p>
+Founded at St. Karoli Lwanga Catholic Parish, Mbiko Brass Band empowers youth through music,
+discipline, and professional mentorship while performing at national and international events.
+</p>
+
+<div class="counters">
+<div><div class="counter" data-target="20">0</div>Years</div>
+<div><div class="counter" data-target="100">0</div>Performances</div>
+<div><div class="counter" data-target="50">0</div>Trained Musicians</div>
+</div>
+</section>
+
+<section id="gallery">
+<h2>Our Performances</h2>
+
+<div class="slider">
+
+<div class="slide active">
+<img src="photo1.jpg">
+<div class="caption">Martyrs Day Celebrations – Namugongo</div>
+</div>
+
+<div class="slide">
+<img src="photo2.jpg">
+<div class="caption">State Function Performance</div>
+</div>
+
+<div class="slide">
+<img src="photo3.jpg">
+<div class="caption">Wedding Ceremony</div>
+</div>
+
+<div class="slide">
+<img src="photo4.jpg">
+<div class="caption">Band Training Session</div>
+</div>
+
+<button class="prev">&#10094;</button>
+<button class="next">&#10095;</button>
+
+</div>
+
+<div class="dots">
+<span class="dot active"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+</div>
+
+</section>
+
+<section id="booking">
+<h2>Book Mbiko Brass Band</h2>
+<form>
+<input type="text" placeholder="Full Name" required>
+<input type="email" placeholder="Email Address" required>
+<input type="tel" placeholder="Phone Number" required>
+<input type="text" placeholder="Event Type" required>
+<textarea placeholder="Event Details"></textarea>
+<button class="btn" type="submit">Submit Booking</button>
+</form>
+</section>
+
+<section id="contact">
+<h2>Contact Us</h2>
+<p>Njeru Town Council – Near Jinja, Uganda</p>
+<button class="btn" onclick="window.location.href='https://wa.me/2567XXXXXXXX'">
+WhatsApp Us
+</button>
+</section>
+
+<footer>
+<p>© 2026 Mbiko Brass Band | All Rights Reserved</p>
+</footer>
+
+<script>
+const counters=document.querySelectorAll('.counter');
+counters.forEach(counter=>{
+counter.innerText='0';
+const update=()=>{
+const target=+counter.getAttribute('data-target');
+const c=+counter.innerText;
+const inc=target/200;
+if(c<target){
+counter.innerText=Math.ceil(c+inc);
+setTimeout(update,10);
+}else{
+counter.innerText=target+"+";
+}
+};
+update();
+});
+
+let slideIndex=0;
+const slides=document.querySelectorAll(".slide");
+const dots=document.querySelectorAll(".dot");
+const next=document.querySelector(".next");
+const prev=document.querySelector(".prev");
+
+function showSlide(index){
+slides.forEach(slide=>slide.classList.remove("active"));
+dots.forEach(dot=>dot.classList.remove("active"));
+slides[index].classList.add("active");
+dots[index].classList.add("active");
+}
+
+function nextSlide(){
+slideIndex=(slideIndex+1)%slides.length;
+showSlide(slideIndex);
+}
+
+function prevSlide(){
+slideIndex=(slideIndex-1+slides.length)%slides.length;
+showSlide(slideIndex);
+}
+
+next.addEventListener("click",nextSlide);
+prev.addEventListener("click",prevSlide);
+dots.forEach((dot,index)=>{
+dot.addEventListener("click",()=>{
+slideIndex=index;
+showSlide(slideIndex);
+});
+});
+
+setInterval(nextSlide,5000);
+</script>
+
+</body>
 <header>
     <!-- ADD YOUR LOGO IMAGE HERE -->
     
@@ -208,6 +247,7 @@ discipline, and professional mentorship while performing at national and interna
 
 </body>
 </html>
+
 
 
 
