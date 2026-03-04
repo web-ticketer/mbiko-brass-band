@@ -281,15 +281,16 @@ discipline, and professional mentorship while performing at national and interna
 
 <section id="booking">
 <h2>Book Mbiko Brass Band</h2>
-<form>
-<input type="text" placeholder="Full Name" required>
-<input type="email" placeholder="Email Address" required>
-<input type="tel" placeholder="Phone Number" required>
-<textarea placeholder="Event Details"></textarea>
+
+<form onsubmit="sendToWhatsApp(); return false;">
+<input type="text" id="name" placeholder="Full Name" required>
+<input type="email" id="email" placeholder="Email Address" required>
+<input type="tel" id="phone" placeholder="Phone Number" required>
+<textarea id="details" placeholder="Event Details" required></textarea>
 <button class="btn" type="submit">Submit Booking</button>
 </form>
-</section>
 
+</section>
 <section id="contact">
 <h2>Contact Us</h2>
     <p>Mbiko Brass Band</p>
@@ -311,7 +312,6 @@ WhatsApp Us
 
 <script>
 document.addEventListener("DOMContentLoaded", function(){
-
 /* COUNTER */
 const counters=document.querySelectorAll('.counter');
 counters.forEach(counter=>{
@@ -357,11 +357,34 @@ slideIndex=(slideIndex+1)%slides.length;
 showSlide(slideIndex);
 },5000);
 
+
+// WHATSAPP BOOKING FUNCTION
+window.sendToWhatsApp = function(){
+
+let name = document.getElementById("name").value;
+let email = document.getElementById("email").value;
+let phone = document.getElementById("phone").value;
+let details = document.getElementById("details").value;
+
+let message = `🎺 Booking Request - Mbiko Brass Band 🎺
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Event Details: ${details}`;
+
+let encodedMessage = encodeURIComponent(message);
+
+window.open(`https://wa.me/256700954275?text=${encodedMessage}`, "_blank");
+
+}
+
+    
 });
 </script>
 
 </body>
 </html>
+
 
 
 
